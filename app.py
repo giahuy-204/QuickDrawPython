@@ -45,6 +45,7 @@ def recognize():
         latex = [classes[x] for x in ind][0]
     return jsonify({
         'prediction' : str(latex),
+        'predict_accuracy' : str(max(prediction)),
         'status' : True
     })
 

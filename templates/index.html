@@ -87,7 +87,12 @@
                 dataType: "json",
                 success: function(msg, status, jqXHR){
                     var data = JSON.parse(jqXHR.responseText);
+
                     var prediction = data.prediction;
+
+                    if (data.predict_accuracy < 0.5) {
+                        prediction = "I don't know what this is";
+                    }
                     document.getElementById("result").innerHTML = "Result: " + prediction;
                 }
             });
