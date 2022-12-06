@@ -44,7 +44,7 @@ def recognize():
         ind = (-prediction).argsort()[:1]
         latex = [classes[x] for x in ind][0]
     return jsonify({
-        'prediction' : str(latex),
+        'prediction' : str(latex).capitalize(),
         'predict_accuracy' : str(max(prediction)),
         'status' : True
     })

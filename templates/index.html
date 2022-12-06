@@ -7,7 +7,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <title>Not so quick Draw 🈶</title>
+    <link rel="icon" href="https://www.pngitem.com/pimgs/m/279-2796348_crayon-drawing-icon-favicon-pencil-hd-png-download.png">
+    <title>Not so quick Draw</title>
 
     <script type="text/javascript">
 
@@ -67,6 +68,7 @@
             ctx.fillStyle = "white";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             console.log("canvas cleared");
+            document.getElementById("result").innerHTML = '';
         }
 
         function postImage(){
@@ -90,7 +92,8 @@
 
                     var prediction = data.prediction;
 
-                    if (data.predict_accuracy < 0.5) {
+                    console.log(data.predict_accuracy)
+                    if (data.predict_accuracy < 0.7) {
                         prediction = "I don't know what this is";
                     }
                     document.getElementById("result").innerHTML = "Result: " + prediction;
@@ -103,7 +106,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h1>Character Sus</h1>
+                <h1>Not so quick Draw 🥺</h1>
                 Line width: <select name="" id="setWidth">
                     <option value="11">11</option>
                     <option value="13">13</option>
