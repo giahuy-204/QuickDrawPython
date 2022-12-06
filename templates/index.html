@@ -12,6 +12,7 @@
     <script type="text/javascript">
 
         var mousePressed = false;
+        var drawedBefore = false;
         var lastX, lastY;
         var ctx;
 
@@ -24,6 +25,7 @@
             console.log("canvas initialized");
             $('#myCanvas').mousedown(function(e){
                 mousePressed = true;
+                drawedBefore = true;
                 draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
             });
 
@@ -59,6 +61,7 @@
         }
 
         function clearCanvas(){
+            drawedBefore = false;
             ctx.setTransform(1, 0, 0, 1, 0, 0);
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "white";
@@ -69,7 +72,7 @@
         function postImage(){
             var image = document.getElementById('myCanvas').toDataURL("image/png");
 
-            if (!mousePressed) {
+            if (!drawedBefore) {
                 alert("Please draw something first!");
                 return;
             }
