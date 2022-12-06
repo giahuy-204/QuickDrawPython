@@ -68,6 +68,12 @@
 
         function postImage(){
             var image = document.getElementById('myCanvas').toDataURL("image/png");
+
+            if (!mousePressed) {
+                alert("Please draw something first!");
+                return;
+            }
+
             image = image.replace(/^data:image\/(png|jpg);base64,/, "");
 
             $.ajax({

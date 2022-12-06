@@ -92,8 +92,8 @@ def recognize():
         # prediction = np.argmax(model.predict(np.array([image_prediction])), axis = -1)
 
         prediction = model.predict(np.expand_dims(image_prediction, axis=0))[0]
-        ind = (-prediction).argsort()[:5]
-        latex = [classes[x] for x in ind]
+        ind = (-prediction).argsort()[:1]
+        latex = [classes[x] for x in ind][0]
     return jsonify({
         'prediction' : str(latex),
         'status' : True
